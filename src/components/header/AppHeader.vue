@@ -2,7 +2,7 @@
   <div class="header">
     <div class="logo">
       <img src="../../assets/logo.png">
-      <h2>{{company_name}}</h2>
+      <p>{{company_name}}</p>
     </div>
   </div>
 </template>
@@ -21,22 +21,21 @@ export default {
 	position: fixed;
 	left: 0px;
 	right: 0px;
-	padding: 0px 15px;
 	background-color: #FFFFFF;
 	overflow: hidden;
 	z-index: 999;
   .logo {
-  	padding: 0px 10px;
     float: left;
     height: 100%;
     img {
-      margin: 5px 0px;
-      height: 60px;
+    	margin: 10px 0px;
+      height: 40px;
       float: left;
     }
-    h2 {
+    p {
       float: left;
-      margin-left: 10px;
+      font-size: 18px;
+      font-weight: 600;
     }
   }
 }

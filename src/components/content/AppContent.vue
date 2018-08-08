@@ -17,7 +17,7 @@ export default {
 .content {
   position: relative;
   float: right;
-  margin-top: 70px;
+  margin-top: 60px;
   width: calc(100% - 260px);
 }
 
