@@ -2,7 +2,6 @@
   <div id="app">
     <AppHeader/>
     <AppMenu/>
-    <AppContent/>
   </div>
 </template>
 
@@ -11,12 +10,11 @@
   //import HelloWorld from './components/HelloWorld.vue'
   import AppHeader from './components/header/AppHeader.vue';
   import AppMenu from './components/menu/AppMenu.vue';
-  import AppContent from './components/content/AppContent.vue';
   export default {
+    name: "app",
     components:{
       AppHeader,
-      AppMenu,
-      AppContent
+      AppMenu
     }
   }
 </script>

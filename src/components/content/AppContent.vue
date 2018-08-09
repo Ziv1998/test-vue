@@ -5,6 +5,7 @@
 </template>
 <script>
 export default {
+  name: "AppContent",
   data() {
     return {
       msg: 'content',
@@ -14,11 +15,4 @@ export default {
 
 </script>
 <style scoped lang="less">
-.content {
-  position: relative;
-  float: right;
-  margin-top: 60px;
-  width: calc(100% - 260px);
-}
-
 </style>
