@@ -1,6 +1,6 @@
 <template>
   <div id="menu-content">
-    <div class="left-menu">
+    <div class="left-menu" ref="left_menu">
       <ul>
         <li v-for="(arr,index) in data">
           <a href="#" :class="{ active:arr.active,collapsed:arr.child&&!arr.active }" @click="menu_click(index,$event)">
@@ -11,7 +11,10 @@
         </li>
       </ul>
     </div>
-    <div class="right-content">
+    <div class="right-content" ref="right_content">
+      <div class="menu-btn" :class="{ close:menuState }" @click="menu_btn">
+        <i class="fa fa-arrow-circle-o-right"></i>
+      </div>
       <component v-bind:is="currentTabComponent"></component>
     </div>
   </div>
@@ -59,7 +62,8 @@ export default {
           active: false
         }
       ],
-      currentTab: "AppContent"
+      currentTab: "AppContent",
+      menuState: false,
     }
   },
   methods: {
@@ -74,11 +78,12 @@ export default {
         this.data[i].active = true;
         this.currentTab = this.data[i].tab;
       }
+    },
+    menu_btn() {
     }
   },
   computed: {
     currentTabComponent: function() {
-      console.log()
       return this.currentTab
     }
   }
@@ -86,7 +91,7 @@ export default {
 
 </script>
 <style scoped lang="less">
-#menu {
+#menu-content {
   overflow: hidden;
 }
 
@@ -97,6 +102,10 @@ export default {
   margin-top: 60px;
   width: 260px;
   height: 100%;
+  transition: all 0.3s ease-in-out;
+  @media (max-width: 768px) {
+    left: -260px;
+  }
   background-color: #2B333E;
   ul {
     list-style: none;
@@ -121,6 +130,10 @@ export default {
           color: #FFFFFF;
         }
       }
+      .icon-submenu {
+        font-size: 20px;
+        float: right;
+      }
       .active {
         background-color: #252c35;
         border-left-color: #00AAFF;
@@ -128,10 +141,6 @@ export default {
           transition: all 0.2s ease-out;
           transform: rotate(90deg);
         }
-      }
-      .icon-submenu {
-        font-size: 20px;
-        float: right;
       }
       .collapsed {
         .icon-submenu {
@@ -146,7 +155,27 @@ export default {
   position: relative;
   float: right;
   margin-top: 60px;
-  width: calc(100% - 260px);
+  width: calc(100% - 320px);
+  transition: all 0.3s ease-in-out;
+  padding: 30px;
+  @media (max-width: 768px) {
+    width: calc(100% - 60px);
+  }
+  .menu-btn {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    cursor: pointer;
+    font-size: 30px;
+    transition: all 0.3s ease-in-out;
+    transform: rotate(0deg);
+    @media (min-width: 768px) {
+      display: none;
+    }
+  }
+  .menu-btn.close {
+    transform: rotate(180deg);
+  }
 }
 
 </style>

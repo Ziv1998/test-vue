@@ -6,7 +6,7 @@ import router from './router'
 // import { library } from '@fortawesome/fontawesome-svg-core'
 // import { faCoffee,faHome } from '@fortawesome/free-solid-svg-icons'
 // import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import 'font-awesome/css/font-awesome.min.css'
+import 'font-awesome/css/font-awesome.css'
 
 // library.add(faCoffee,faHome)
 
